@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { BookModule } from './BookService/BookService.module';
-import { AppController } from './app.controller';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthModule } from './Auth/AuthService.module';
-import { JwtStrategy } from './Auth/strategy/jwt.strategy';
+// import { JwtStrategy } from './Auth/strategy/jwt.strategy';
+// import { PassportModule } from '@nestjs/passport';
+// import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -13,6 +14,5 @@ import { JwtStrategy } from './Auth/strategy/jwt.strategy';
     BookModule,
     AuthModule,
   ],
-  providers: [AppController, JwtStrategy],
 })
 export class AppModule {}

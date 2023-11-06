@@ -1,9 +1,10 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards } from '@nestjs/common';
 
 import { SignUpUserDto } from '../interface/dto/signUp-userService';
 import { SignInUserDto } from '../interface/dto/signIn-userService';
 import { AuthService } from '../service/AuthService.service';
 import { UserDocument } from '../schemas/user.schema';
+import { JwtAuthGuard } from '../jwt.auth.guard';
 
 @Controller('api')
 export class AuthController {
@@ -12,6 +13,12 @@ export class AuthController {
   @Post('users/signup')
   public signUp(@Body() body: SignUpUserDto): Promise<UserDocument> {
     return this.authService.signUp(body);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/abc')
+  public sign(): number {
+    return 1;
   }
 
   @Post('users/signin')

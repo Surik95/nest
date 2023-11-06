@@ -11,6 +11,7 @@ import { PassportModule } from '@nestjs/passport';
   imports: [
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     PassportModule,
+    PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
       secret: `${process.env.JWT_CONSTANTS}`,
     }),

@@ -16,8 +16,8 @@ export class AuthService {
   ) {}
 
   signUp(profile: SignUpUserDto): Promise<UserDocument> {
-    const book = new this.userModel(profile);
-    return book.save();
+    const user = new this.userModel(profile);
+    return user.save();
   }
 
   async signIn(profile: SignInUserDto): Promise<any> {
@@ -37,6 +37,14 @@ export class AuthService {
       id: user._id.toString(),
     };
     return this.jwtService.sign(payload);
+  }
+
+  async validateUser(profile: SignInUserDto): Promise<any> {
+    const user = await this.userModel.findOne({ email: profile.email }).exec();
+    if (user?.password !== profile.password) {
+      return null;
+    }
+    return user;
   }
 
   // signIn(payload: any) {

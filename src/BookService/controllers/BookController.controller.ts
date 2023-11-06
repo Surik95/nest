@@ -6,7 +6,7 @@ import {
   Put,
   Param,
   Delete,
-  UseGuards,
+  // UseGuards,
 } from '@nestjs/common';
 import { HydratedDocument, QueryWithHelpers } from 'mongoose';
 import { BookService } from '../service/BookService.service';
@@ -14,7 +14,7 @@ import { IParamId } from '../interface/param-id';
 import { CreateBookDto } from '../interface/dto/create-bookService';
 import { BookDocument } from '../schemas/book.schema';
 import { UpdateBookDto } from '../interface/dto/update-bookService';
-import { JwtAuthGuard } from 'src/Auth/jwt.auth.guard';
+// import { JwtAuthGuard } from 'src/Auth/jwt.auth.guard';
 
 @Controller('book')
 export class BookController {
@@ -25,7 +25,7 @@ export class BookController {
     return this.bookService.create(body);
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get()
   public findAll(): Promise<BookDocument[]> {
     return this.bookService.findAll();
