@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel, InjectConnection } from '@nestjs/mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 import {
   Model,
-  Connection,
+  // Connection,
   HydratedDocument,
   QueryWithHelpers,
 } from 'mongoose';
@@ -13,8 +13,7 @@ import { UpdateBookDto } from '../interface/dto/update-bookService';
 @Injectable()
 export class BookService {
   constructor(
-    @InjectModel(Book.name) private bookModel: Model<BookDocument>,
-    @InjectConnection() private connection: Connection,
+    @InjectModel(Book.name) private bookModel: Model<BookDocument>, // @InjectConnection() private connection: Connection,
   ) {}
 
   public create(data: CreateBookDto): Promise<BookDocument> {

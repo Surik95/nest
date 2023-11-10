@@ -13,8 +13,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       secretOrKey: `${process.env.JWT_CONSTANTS}`,
     });
   }
-
-  public async validate(payload: SignInUserDto) {
+  public async validate(payload: SignInUserDto): Promise<any> {
+    console.log(1);
     const user = await this.authService.validateUser(payload);
     if (!user) {
       throw new UnauthorizedException();
