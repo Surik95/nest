@@ -17,7 +17,6 @@ export class BookService {
   ) {}
 
   public create(data: CreateBookDto): Promise<BookDocument> {
-    console.log(data);
     const book = new this.bookModel(data);
     return book.save();
   }

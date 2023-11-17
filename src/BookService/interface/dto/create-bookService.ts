@@ -5,4 +5,5 @@ export interface CreateBookDto {
   favorite?: boolean;
   fileCover?: string;
   fileName?: string;
+  id?: string;
 }
