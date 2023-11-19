@@ -24,15 +24,6 @@ export class Book {
 
   @Prop()
   public fileName: string;
-
-  // @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'User' })
-  // user: User;
-
-  // @Prop(raw({
-  //     latitude: { type: Number },
-  //     longitude: { type: Number }
-  // }))
-  // public location: Location;
 }
 
 export const BookSchema = SchemaFactory.createForClass(Book);

@@ -6,6 +6,7 @@ import { AuthModule } from './Auth/AuthService.module';
 // import { JwtStrategy } from './Auth/strategy/jwt.strategy';
 // import { PassportModule } from '@nestjs/passport';
 // import { JwtModule } from '@nestjs/jwt';
+import { CommentsBookModule } from './comments-book/comments-book.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { AuthModule } from './Auth/AuthService.module';
     MongooseModule.forRoot(process.env.MONGO_CONNECTION),
     BookModule,
     AuthModule,
+    CommentsBookModule,
   ],
 })
 export class AppModule {}

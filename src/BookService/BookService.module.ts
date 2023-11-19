@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { BookController } from './controllers/BookController.controller';
 import { BookService } from './service/BookService.service';
-import { MongooseModule, getModelToken } from '@nestjs/mongoose';
+import { MongooseModule } from '@nestjs/mongoose';
 import { Book, BookSchema } from './schemas/book.schema';
 
 @Module({
@@ -9,13 +9,7 @@ import { Book, BookSchema } from './schemas/book.schema';
     MongooseModule.forFeature([{ name: Book.name, schema: BookSchema }]),
   ],
   controllers: [BookController],
-  providers: [
-    BookService,
-    {
-      provide: getModelToken(Book.name),
-      useValue: jest.fn,
-    },
-  ],
+  providers: [BookService],
   exports: [BookService],
 })
 export class BookModule {}

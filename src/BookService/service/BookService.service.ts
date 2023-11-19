@@ -45,7 +45,7 @@ export class BookService {
     object,
     BookDocument
   > {
-    return this.bookModel.findOneAndRemove({ _id: id });
+    return this.bookModel.findOneAndDelete({ _id: id });
   }
   // create(book: Book) {
   //   this.books.push(book);
