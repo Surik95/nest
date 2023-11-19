@@ -16,8 +16,9 @@ export class AuthController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('/abc')
+  @Get('/qwerty')
   public sign(): number {
+    console.log('JwtAuthGuard пройден - можно получать все объекты дальше');
     return 1;
   }
 

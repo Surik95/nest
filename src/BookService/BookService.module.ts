@@ -11,10 +11,10 @@ import { Book, BookSchema } from './schemas/book.schema';
   controllers: [BookController],
   providers: [
     BookService,
-    {
-      provide: getModelToken(Book.name),
-      useValue: jest.fn,
-    },
+    // {
+    //   provide: getModelToken(Book.name),
+    //   useValue: jest.fn,
+    // },
   ],
   exports: [BookService],
 })
