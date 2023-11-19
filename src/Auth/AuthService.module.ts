@@ -6,6 +6,7 @@ import { User, UserSchema } from './schemas/user.schema';
 import { JwtModule } from '@nestjs/jwt/dist';
 import { JwtStrategy } from './strategy/jwt.strategy';
 import { PassportModule } from '@nestjs/passport';
+import { LocalStrategy } from './strategy/local.strategy'
 import { ConfigModule } from '@nestjs/config';
 
 @Module({
