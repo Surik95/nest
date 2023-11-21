@@ -9,12 +9,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private authService: AuthService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      passReqToCallback: true,
+      // passReqToCallback: true,
       secretOrKey: `${process.env.JWT_CONSTANTS}`,
     });
   }
   public async validate(payload: SignInUserDto): Promise<any> {
-    console.log(1);
+    console.log(payload);
     const user = await this.authService.validateUser(payload);
     if (!user) {
       throw new UnauthorizedException();

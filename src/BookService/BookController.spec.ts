@@ -9,6 +9,7 @@ import { UpdateBookDto } from './interface/dto/update-bookService';
 import * as mongoose from 'mongoose';
 import { BookController } from './controllers/BookController.controller';
 import { BookService } from './service/BookService.service';
+import { JwtAuthGuard } from 'src/Auth/jwt.auth.guard';
 
 describe('Books', () => {
   let app: INestApplication;
@@ -44,6 +45,8 @@ describe('Books', () => {
       controllers: [BookController],
       providers: [BookService],
     })
+      .overrideGuard(JwtAuthGuard)
+      .useValue({ canActivate: () => true })
       .overrideProvider(BookService)
       .useValue(booksService)
       .compile();

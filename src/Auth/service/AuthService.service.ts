@@ -41,7 +41,7 @@ export class AuthService {
 
   async validateUser(profile: SignInUserDto): Promise<any> {
     const user = await this.userModel.findOne({ email: profile.email }).exec();
-    if (user?.password !== profile.password) {
+    if (!user) {
       return null;
     }
     return user;

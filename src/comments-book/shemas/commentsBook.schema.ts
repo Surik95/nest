@@ -11,8 +11,8 @@ export class BookComment {
   @Prop({ required: true })
   public comment: string;
 
-  @Prop({ required: true })
-  public id: number;
+  // @Prop({ required: true })
+  // public id: number;
 }
 
 export const BookCommentSchema = SchemaFactory.createForClass(BookComment);
